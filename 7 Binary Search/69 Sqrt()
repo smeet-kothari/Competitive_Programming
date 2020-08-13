@@ -1,0 +1,14 @@
+int mySqrt(int x) 
+{
+        
+        if(x==0) return 0;
+        
+        long long int temp,i=1;
+        temp=2*i+1;
+        while(temp<x)
+        {
+            i++;
+            temp+=2*i+1;
+        }
+        return i;      
+ }

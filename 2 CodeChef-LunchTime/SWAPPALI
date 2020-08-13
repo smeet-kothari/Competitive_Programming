@@ -1,0 +1,46 @@
+/* https://www.codechef.com/LTIME81B/problems/SWAPPALI */
+#include<bits/stdc++.h>
+using namespace std;
+int main ()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,f[26]={0},count=0,ans=0;
+        cin>>n;
+        n -= 1;
+        string s;
+        cin>>s;
+        for (char c:s) f[c-'a']++;
+        
+        for (int i=0;i<26;i++) if(f[i]%2) count++;
+        
+        if(count>1) 
+        {
+            cout<<"NO"<<endl;
+            continue;
+        }
+        for (int i=0;i<s.size()/2;i++)
+        {
+            if(s[i]==s[n-i-1]) continue;
+            
+            int j,k;
+            for (j=0;j<=n-i && s[j]!=s[n-i];j++)
+            for (k=n;k>=i && s[k]!=s[i];k--)
+            cout<<j<<" "<<i<<endl;
+            ans += min(j-i,n-i-k);
+            
+            if(j-i<n-i-k)
+            {
+                for (int x=j;x>i;x--) swap(s[x],s[x-1]);
+            }
+            else 
+                for (int x=k;k<n-i;k++) swap(s[x],s[x+1]);
+        }
+        
+        cout<<"YES"<<"\n";
+        cout<<ans<<endl;
+    }
+    return 0;
+}

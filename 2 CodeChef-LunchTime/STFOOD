@@ -1,0 +1,23 @@
+/* https://www.codechef.com/LTIME80B/problems/STFOOD */
+#include<bits/stdc++.h>
+using namespace std;
+
+int main ()
+{
+    int q;
+    cin>>q;
+    while(q--)
+    {
+        int n,ans=INT_MIN;
+        cin>>n;
+        while(n--)
+        {
+            int a,b,c;
+            cin>>a>>c>>b;
+            if(floor(c/(a+1))*b>ans) ans=b*floor(c/(a+1));
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}
+

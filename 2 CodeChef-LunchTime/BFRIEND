@@ -1,0 +1,23 @@
+/* https://www.codechef.com/LTIME80B/problems/BFRIEND */
+#include<bits/stdc++.h>
+using namespace std;
+
+int main ()
+{
+    int q;
+    cin>>q;
+    while(q--)
+    {
+        long long int n,a,b,c;
+        cin>>n>>a>>b>>c;
+        long int ar[n];
+        for(int i=0;i<n;i++) cin>>ar[i];
+        long long int ans=INT_MAX;
+        for (int i=0;i<n;i++) 
+        {
+            ans=min(ans,abs(ar[i]-a)+abs(ar[i]-b));
+        }
+        cout<<ans+c<<endl;
+    }
+    return 0;
+}
