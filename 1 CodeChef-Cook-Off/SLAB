@@ -1,0 +1,21 @@
+/* https://www.codechef.com/problems/SLAB */
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		long long int n,ans=0;
+		cin>>n;
+		if(n>1500000) ans = ((n-1500000)*0.3) + 62500 + 50000 + 37500 + 25000 + 12500;
+		else if (n>1250000) ans = (n-1250000)*0.25 + 50000 + 37500 + 25000 + 12500;
+		else if (n>1000000) ans = ((n-1000000)*0.2)+ 37500 + 25000 + 12500;
+		else if (n>750000) ans =  ((n-750000)*0.15) + 25000 + 12500;
+		else if (n>500000) ans =  ((n-500000)*0.10) + 12500;
+		else if (n>250000) ans =  ((n-250000)*0.05);
+		cout<<n-ans<<endl;
+	}
+	return 0;
+}

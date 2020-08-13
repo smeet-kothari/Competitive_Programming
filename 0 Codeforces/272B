@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+pair<int,int>p;
+unordered_map<int,pair<int,int>>m;    // m(element,(first occurenec,last ocurence))
+
+int main()
+{
+    
+    int n;
+    cin >> n;
+    int a[n],f[n+1]={0};
+    for (int i=0;i<n;i++)
+    {
+        cin >> a[i];
+        f[a[i]]++;
+        if(f[a[i]]==1)
+        {
+            p=make_pair(i,i);  
+        }
+        else if(m[a[i]].second < i) 
+        {
+            p=make_pair(m[a[i]].first,i);
+        }
+        m[a[i]]=p;
+    }
+    
+    int q,x;
+    long long int v=0,pe=0;
+    cin>>q;
+    while(q--)
+    {
+        cin >> x;
+        v += (m[x].first+1);
+        pe += (n-m[x].second);
+    }
+    
+    cout<<v<<" "<<pe<<endl;
+    return 0;
+}

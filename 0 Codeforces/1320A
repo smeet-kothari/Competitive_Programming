@@ -1,0 +1,33 @@
+/* https://codeforces.com/contest/1320/problem/A */
+#include<bits/stdc++.h>
+using namespace std;
+int main ()
+{
+    int n;
+    cin>>n;
+    if(n==1)
+    {
+        int temp;
+        cin>>temp;
+        cout<<temp;
+    }
+    else
+    {
+        map<int,long long int>m;
+        for (int i=-1999999;i<=2000000;i++) m[i]=0;
+        for (int i=0;i<n;i++)
+        {
+            long long int temp,t;
+            cin>>temp;
+            t=temp-(i+1);
+            m[t] += temp;
+        }
+        long long int ma=INT_MIN;
+        for (int i=-1999999;i<=2000000;i++)
+        {
+            ma=max(ma,m[i]);
+        }
+        cout<<ma;
+    }
+    return 0;
+}

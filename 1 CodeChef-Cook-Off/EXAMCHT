@@ -1,0 +1,23 @@
+/* https://www.codechef.com/COOK114B/problems/EXAMCHT */
+#include<bits/stdc++.h>
+using namespace std;
+int main ()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int a,b,diff,ans=0,x,y;
+        cin>>x>>y;
+        a=min(x,y);
+        b=max(x,y);
+        diff=b-a;
+        for (int i=1;i<=sqrt(diff);i++)
+        {
+            if((b-a)%i==0 && i==(b-a)/i ) ans+=1;
+            else if( (b-a)%i==0 ) ans+=2;
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}
