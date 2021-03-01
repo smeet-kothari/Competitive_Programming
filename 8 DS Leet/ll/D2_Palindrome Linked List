@@ -1,0 +1,44 @@
+/* https://leetcode.com/problems/palindrome-linked-list/ */
+/* Middle of LL --> https://www.youtube.com/watch?v=sGdwSH8RK-o&list=PLgUwDviBIf0r47RKH7fdWN54AbWFgGuii&index=3*/
+/* Learnt from --> https://www.youtube.com/watch?v=wk4QsvwQwdQ */
+
+/* Reversing Linked List --> https://www.youtube.com/watch?v=sYcOK51hl-A */
+/* Recursive Reverse --> https://www.youtube.com/watch?v=KYH83T4q6Vs */
+ListNode reverse(ListNode head)
+{
+    ListNode prev=null,cur=head,n;
+    while(cur.next != null )
+    {
+        n = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = n;
+    }
+    return prev;
+}
+
+
+{
+    
+    /* Below Given Snippet will contain lines to copy paste in function of LeetCode */
+    
+    ListNode slow=head;
+    ListNode fast=head;
+    
+    while(fast != null && fast.next!= null)
+    {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    
+    slow = reverse(slow);
+    
+    
+    
+    while(slow != null)     //In cases of odd length of Linked List slow will be always a node less than fast
+    {
+        if(slow.val != fast.val ) return false;
+    }
+    
+    return true;
+}
